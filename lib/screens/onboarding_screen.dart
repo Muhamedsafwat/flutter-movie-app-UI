@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:movie_app_ui/components/custom_outline.dart';
 import 'package:movie_app_ui/constants.dart';
+import 'package:movie_app_ui/screens/home_screen.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({Key? key}) : super(key: key);
@@ -13,7 +14,7 @@ class OnBoardingScreen extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Constants.kBlackColor,
-      body: Container(
+      body: SizedBox(
         width: screenWidth,
         height: screenHeight,
         child: Stack(
@@ -146,13 +147,21 @@ class OnBoardingScreen extends StatelessWidget {
                               Constants.kCyanColor.withOpacity(.3)
                             ]),
                       ),
-                      child: Center(
-                          child: Text("Sign up",
-                              style: TextStyle(
-                                fontSize: 16,
-                                color: Constants.kWhiteColor.withOpacity(.9),
-                                fontWeight: FontWeight.w600,
-                              ))),
+                      child: GestureDetector(
+                        onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const HomePage(),
+                          ),
+                        ),
+                        child: Center(
+                            child: Text("Sign up",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Constants.kWhiteColor.withOpacity(.9),
+                                  fontWeight: FontWeight.w600,
+                                ))),
+                      ),
                     ),
                   ),
                   const Spacer(),
